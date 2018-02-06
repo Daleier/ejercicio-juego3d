@@ -9,7 +9,6 @@ Ks 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 1
-map_Kd wolf col.jpg
 
 newmtl claws
 Ns 0.000000
@@ -28,8 +27,8 @@ Ks 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 1
-map_Kd eye_2.jpg
-map_Ke eye_2.jpg
+map_Kd wolf_eyes_2.jpg
+map_Ke wolf_eyes_2.jpg
 
 newmtl fur
 Ns 0.000000
@@ -39,8 +38,6 @@ Ks 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 1
-map_Kd wolf col.jpg
-map_d fella3.jpg
 
 newmtl teeth
 Ns 0.000000
@@ -50,4 +47,3 @@ Ks 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 1
-map_Kd fella3.jpg
