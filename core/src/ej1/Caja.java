@@ -1,4 +1,4 @@
-package ej2;
+package ej1;
 
 import com.badlogic.gdx.math.Vector3;
 
