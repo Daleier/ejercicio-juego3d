@@ -29,7 +29,7 @@ public class UD4_2_ColFue extends Game implements InputProcessor {
 
     private ArrayList<Elemento3D> naves;
 	private Terra terra;
-	private float velocidadNave = 10f;
+	private float velocidadNave = 500f;
 
     private PerspectiveCamera camara3d;
 
@@ -113,7 +113,7 @@ public class UD4_2_ColFue extends Game implements InputProcessor {
         //Actualizar la tierra
 		terra.update(delta);
         //Cambiar de signo la velocidad de la tierra cada vez que se alcanza un límite de pantalla
-		if(terra.posicion.x == terra.POSFINALX || terra.posicion.x == terra.POSINICALX){
+		if(terra.posicion.x >= terra.POSFINALX || terra.posicion.x <= terra.POSINICALX){
 			terra.velocidade.x = -1 * terra.velocidade.x;
 		}
     }
@@ -168,7 +168,7 @@ public class UD4_2_ColFue extends Game implements InputProcessor {
 		}
         //Dibujar la tierra.
 		instanceTierra.transform.set(terra.matriz);
-		modelBatch.render(instanceNave,environment);
+		modelBatch.render(instanceTierra,environment);
         modelBatch.end();
 
         sbufferAciertos.setLength(0);
@@ -196,7 +196,15 @@ public class UD4_2_ColFue extends Game implements InputProcessor {
         camara3d.viewportHeight = 1f;
         camara3d.far = 5000f;
         camara3d.near = 0.1f;
-        camara3d.update();
+		//Posicionar la cámara en (0,500,0)
+		camara3d.position.set(0,500,0);
+		//Hacer que la cámar enfoque hacia el origen de coordenadas: (0,0,0)
+		camara3d.lookAt(0,0,0);
+		//Actuazliar la cámara
+		camara3d.update();
+
+
+
 
         //Para las fuentes
 		this.proporcionAncho= (float)(width/this.pantallaAncho);
