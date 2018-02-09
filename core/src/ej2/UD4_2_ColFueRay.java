@@ -16,7 +16,10 @@ import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
+import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.math.collision.BoundingBox;
+import com.badlogic.gdx.math.collision.Ray;
 import com.badlogic.gdx.math.collision.Sphere;
 import com.badlogic.gdx.utils.Array;
 
@@ -36,7 +39,7 @@ public class UD4_2_ColFueRay extends Game implements InputProcessor {
 	//Declarar una esfera para la tierra.
 	public Sphere esferaTierra;
 	//Declarar una esfera para una nave.
-	public Sphere esferaNave;
+	public ArrayList<Sphere> esferasNaves;
 
 	/*Nuevos atributos*/
 	private ModelBatch modelBatch;
@@ -93,7 +96,7 @@ public class UD4_2_ColFueRay extends Game implements InputProcessor {
 		//Instanciar la esfera de la tierra a partir de la posición y escala de la tierra.
 		esferaTierra = new Sphere(terra.posicion,terra.escala);
 		//Instanciar la esfera de la nave a partir de la posición y escala de la nave que ocupa la primera posición del arrayList
-		esferaNave = new Sphere(this.naves.get(0).posicion,this.naves.get(0).escala);
+		//sustitudio por iniciarEsferas
 		//Establecer el propio objeto de la clase (this) como listener de eventos de entrada de pantalla y teclado.
 		Gdx.input.setInputProcessor(this);
 	}
@@ -107,6 +110,14 @@ public class UD4_2_ColFueRay extends Game implements InputProcessor {
 		naves.add(new Elemento3D(new Vector3(+140f, 0f, -250f), 20f, new Vector3(0, 0, 0)));
 		naves.add(new Elemento3D(new Vector3(+270f, 0f, -250f), 20f, new Vector3(0, 0, 0)));
 		naves.add(new Elemento3D(new Vector3(+400f, 0f, -250f), 20f, new Vector3(0, 0, 0)));
+		iniciarEsferas();
+	}
+
+	void iniciarEsferas(){
+		esferasNaves = new ArrayList<Sphere>();
+		for (Elemento3D nave: naves){
+			esferasNaves.add(new Sphere(nave.posicion,nave.escala));
+		}
 	}
 
 	private void controlarTerra(float delta) {
@@ -128,17 +139,25 @@ public class UD4_2_ColFueRay extends Game implements InputProcessor {
 			//posicionar el centro de la esfera de la Tierra en la posición del modelo Tierra.
 			esferaTierra.center.set(terra.posicion);
 			//posicionar el centro de la esfera de la nave en la posición de la primera nave del array de naves.
-			esferaNave.center.set(naves.get(0).posicion);
+			for(int i=0; i < naves.size(); i++){
+				esferasNaves.get(i).center.set(naves.get(i).posicion);
+			}
+			for(int a=0; a < esferasNaves.size(); a++){
+				Sphere esferaNave = esferasNaves.get(a);
+				if (esferaNave.overlaps(this.esferaTierra)){
+					//Eliminar la nave del array de naves.
+					this.naves.remove(a);
+					this.esferasNaves.remove(a);
+					numVidas.add(TIPOS_VIDA.ACIERTOS);
+				}else if (this.naves.get(a).posicion.z > this.terra.posicion.z + 150) {
+					//Eliminar la nave del array de naves.
+					this.naves.remove(a);
+					this.esferasNaves.remove(a);
+					numVidas.add(TIPOS_VIDA.FALLOS);
+				}
+			}
 
-			if (this.esferaNave.overlaps(this.esferaTierra)){
-				//Eliminar la nave del array de naves.
-				this.naves.remove(this.naves.get(0));
-				numVidas.add(TIPOS_VIDA.ACIERTOS);
-			}else if (this.naves.get(0).posicion.z > this.terra.posicion.z + 150) {
-				//Eliminar la nave del array de naves.
-				this.naves.remove(this.naves.get(0));
-				numVidas.add(TIPOS_VIDA.FALLOS);
-			}if (this.naves.isEmpty())
+			if (this.naves.isEmpty())
 				//Iniciar de nuevo el array de naves.
 				this.iniciarNaves();
 		}
@@ -203,9 +222,6 @@ public class UD4_2_ColFueRay extends Game implements InputProcessor {
 		//Actuazliar la cámara
 		camara3d.update();
 
-
-
-
 		//Para las fuentes
 		this.proporcionAncho= (float)(width/this.pantallaAncho);
 		this.proporcionAlto= (float)(height/this.pantallaAlto);
@@ -247,7 +263,14 @@ public class UD4_2_ColFueRay extends Game implements InputProcessor {
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		//Asignar a la primera nave del array de naves una velocidad con una componente Z mayor que 0
-		this.naves.get(0).velocidade.z = velocidadNave;
+		Ray ray = camara3d.getPickRay(screenX, screenY, 0, 0, Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+		BoundingBox boundingBox;
+		for(int i = 0; i< esferasNaves.size(); i++){
+			Sphere esfera = esferasNaves.get(i);
+			if (Intersector.intersectRaySphere(ray,esfera.center,esfera.radius, null)){
+				naves.get(i).velocidade.z = velocidadNave;
+			}
+		}
 		return false;
 	}
 
