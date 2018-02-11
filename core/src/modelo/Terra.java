@@ -1,8 +1,8 @@
-package ej2;
+package modelo;
 
 import com.badlogic.gdx.math.Vector3;
 
-import ej1.Elemento3D;
+import modelo.Elemento3D;
 
 /**
  * Created by dam203 on 08/02/2018.

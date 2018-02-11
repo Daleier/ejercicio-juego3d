@@ -1,4 +1,4 @@
-package ej1;
+package modelo;
 
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;

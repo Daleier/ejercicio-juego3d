@@ -1,4 +1,4 @@
-package ej2;
+package game;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -21,7 +21,8 @@ import com.badlogic.gdx.math.collision.Sphere;
 import com.badlogic.gdx.utils.Array;
 
 import java.util.ArrayList;
-import ej1.Elemento3D;
+import modelo.Elemento3D;
+import modelo.Terra;
 
 public class UD4_2_ColFue extends Game implements InputProcessor {
 	public static enum TIPOS_VIDA{ACIERTOS,FALLOS};

@@ -1,6 +1,8 @@
-package ej1;
+package modelo;
 
 import com.badlogic.gdx.math.Vector3;
+
+import modelo.Elemento3D;
 
 public class Caja extends Elemento3D {
 

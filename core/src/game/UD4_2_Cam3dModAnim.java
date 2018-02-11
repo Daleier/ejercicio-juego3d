@@ -1,4 +1,4 @@
-package ej1;
+package game;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -14,6 +14,8 @@ import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.math.Vector3;
 
 import java.util.ArrayList;
+
+import modelo.Caja;
 
 public class UD4_2_Cam3dModAnim extends Game {
 	private PerspectiveCamera camara3d;
