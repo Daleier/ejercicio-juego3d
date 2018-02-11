@@ -5,6 +5,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
 import game.UD4_2_ColFueRay;
 import game.UD4_3_Juego3D01;
+import game.UD4_3_Juego3D02;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
