@@ -34,12 +34,12 @@ public class UD4_3_Juego3D01 extends Game implements InputProcessor {
         this.meuMundo = new Mundo01();
 
         AssetManager assets = new AssetManager();
-        assets.load("modelos/floor/floor.obj", Model.class);
+        assets.load("modelos/grass/grass_01.obj", Model.class);
         assets.load("modelos/f-117/f-117_nighthawk.obj", Model.class);
         assets.load("modelos/fish/fish.obj", Model.class);
         assets.finishLoading();
 
-        Model modelSuelo = assets.get("modelos/floor/floor.obj", Model.class);
+        Model modelSuelo = assets.get("modelos/grass/grass_01.obj", Model.class);
         Model modelNave = assets.get("modelos/f-117/f-117_nighthawk.obj", Model.class);
         Model modelEnemigo = assets.get("modelos/fish/fish.obj", Model.class);
 

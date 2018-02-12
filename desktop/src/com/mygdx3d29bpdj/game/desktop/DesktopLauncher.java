@@ -11,6 +11,6 @@ import game.UD4_3_Juego3D02;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		new LwjglApplication(new UD4_3_Juego3D02(), config);
+		new LwjglApplication(new UD4_3_Juego3D01(), config);
 	}
 }

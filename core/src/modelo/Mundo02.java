@@ -23,15 +23,15 @@ public class Mundo02 {
         Suelo e;
         for (int i = 0; i <= 7; i++) {
             px = ((float) Math.random() * 250f - 125);
-            e = new Suelo(new Vector3(px - 800, -200f, (1000f - i * 200)), 20f, new Vector3(0, 0, -80f), new Vector3(0, 0, -450f), 1);
+            e = new Suelo(new Vector3(px - 800, -450f, (1000f - i * 200)), 500f, new Vector3(0, 0, -80f), new Vector3(0, 0, -450f), 1);
             suelos.add(e);
-            e = new Suelo(new Vector3(px - 400, -200f, (1000f - i * 200)), 20f, new Vector3(0, 0, -80f), new Vector3(0, 0, -450f), 1);
+            e = new Suelo(new Vector3(px - 400, -450f, (1000f - i * 200)), 500f, new Vector3(0, 0, -80f), new Vector3(0, 0, -450f), 1);
             suelos.add(e);
-            e = new Suelo(new Vector3(px, -200f, (1000f - i * 200)), 20f, new Vector3(0, 0, -80f), new Vector3(0, 0, -450f), 30);
+            e = new Suelo(new Vector3(px, -450f, (1000f - i * 200)), 500f, new Vector3(0, 0, -80f), new Vector3(0, 0, -450f), 30);
             suelos.add(e);
-            e = new Suelo(new Vector3(px + 400, -200f, (1000f - i * 200)), 20f, new Vector3(0, 0, -80f), new Vector3(0, 0, -450f), 1);
+            e = new Suelo(new Vector3(px + 400, -450f, (1000f - i * 200)), 500f, new Vector3(0, 0, -80f), new Vector3(0, 0, -450f), 1);
             suelos.add(e);
-            e = new Suelo(new Vector3(px + 800, -200f, (1000f - i * 200)), 20f, new Vector3(0, 0, -80f), new Vector3(0, 0, -450f), 1);
+            e = new Suelo(new Vector3(px + 800, -450f, (1000f - i * 200)), 500f, new Vector3(0, 0, -80f), new Vector3(0, 0, -450f), 1);
             suelos.add(e);
         }
     }

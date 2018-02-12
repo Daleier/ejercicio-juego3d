@@ -21,7 +21,7 @@ public class Mundo01 {
     private void iniciarSuelo() {
         suelos = new ArrayList<Elemento3D>();
         for (int i=0; i<=7;i++)
-            suelos.add(new Elemento3D(new Vector3(0f, 0f, (350f-i*50)), 10f, new Vector3(0, 0, -80f)));
+            suelos.add(new Elemento3D(new Vector3(0f, -200f, (350f-i*50)), 300f, new Vector3(0, 0, -80f)));
 
     }
 
