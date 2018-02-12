@@ -40,13 +40,13 @@ public class UD4_3_Juego3D02 extends Game implements InputProcessor {
 
         AssetManager assets = new AssetManager();
         assets.load("modelos/fondo/lowpolymountains.obj", Model.class);
-        assets.load("modelos/ship/ship.obj", Model.class);
-        assets.load("modelos/spaceinvader/invader1.obj", Model.class);
+        assets.load("modelos/f-117/f-117_nighthawk.obj", Model.class);
+        assets.load("modelos/fish/fish.obj", Model.class);
         assets.finishLoading();
 
         Model modelSuelo = assets.get("modelos/fondo/lowpolymountains.obj", Model.class);
-        Model modelNave = assets.get("modelos/ship/ship.obj", Model.class);
-        Model modelEnemigo = assets.get("modelos/spaceinvader/invader1.obj", Model.class);
+        Model modelNave = assets.get("modelos/f-117/f-117_nighthawk.obj", Model.class);
+        Model modelEnemigo = assets.get("modelos/fish/fish.obj", Model.class);
         //Creación de una esfera para el disparo.
         ModelBuilder modelBuilder = new ModelBuilder();
         Model modelDisparo = modelBuilder.createSphere(5f, 5f, 10f, 10, 10,

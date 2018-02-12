@@ -13,7 +13,7 @@ public class Mundo01 {
     private Terra nave;
 
     public Mundo01() {
-        this.nave = new Terra(new Vector3(0, 0, 100f), 20f, new Vector3(100f, 0, 0), 0, new Vector3(0, 0, 0));
+        this.nave = new Terra(new Vector3(0, 0, 100f), 1f, new Vector3(100f, 0, 0), 0, new Vector3(0, 0, 0));
         this.iniciarSuelo();
         this.iniciarEnemigo();
     }
@@ -28,7 +28,7 @@ public class Mundo01 {
     private void iniciarEnemigo() {
         enemigos = new ArrayList<Elemento3D>();
         for (int i=0; i<=3;i++)
-            enemigos.add(new Elemento3D(new Vector3(((float)Math.random()*200f-100), 20f, (350f-i*100)), 0.4f, new Vector3(0, 0, -80f)));
+            enemigos.add(new Elemento3D(new Vector3(((float)Math.random()*200f-100), 20f, (350f-i*100)), 7f, new Vector3(0, 0, -80f)));
     }
 
     public ArrayList<Elemento3D> getSuelos() {

@@ -35,13 +35,13 @@ public class UD4_3_Juego3D01 extends Game implements InputProcessor {
 
         AssetManager assets = new AssetManager();
         assets.load("modelos/floor/floor.obj", Model.class);
-        assets.load("modelos/ship/ship.obj", Model.class);
-        assets.load("modelos/spaceinvader/invader1.obj", Model.class);
+        assets.load("modelos/f-117/f-117_nighthawk.obj", Model.class);
+        assets.load("modelos/fish/fish.obj", Model.class);
         assets.finishLoading();
 
         Model modelSuelo = assets.get("modelos/floor/floor.obj", Model.class);
-        Model modelNave = assets.get("modelos/ship/ship.obj", Model.class);
-        Model modelEnemigo = assets.get("modelos/spaceinvader/invader1.obj", Model.class);
+        Model modelNave = assets.get("modelos/f-117/f-117_nighthawk.obj", Model.class);
+        Model modelEnemigo = assets.get("modelos/fish/fish.obj", Model.class);
 
         camara3d = new PerspectiveCamera();
         modelBatch = new ModelBatch();
@@ -60,7 +60,7 @@ public class UD4_3_Juego3D01 extends Game implements InputProcessor {
     @Override
     public void render() {
 
-        Gdx.gl20.glClearColor(0f, 0f, 0f, 1f);
+        Gdx.gl20.glClearColor(0f, 0.3f, 0.4f, 1f);
         Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
         Gdx.gl20.glEnable(GL20.GL_DEPTH_TEST);

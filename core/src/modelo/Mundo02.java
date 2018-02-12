@@ -11,7 +11,7 @@ public class Mundo02 {
     private MovilMax disparo;
 
     public Mundo02() {
-        this.nave = new Nave(new Vector3(0, 40, 25f), 20f, new Vector3(0, 0, 0), new Vector3(200f, 0, 0), 30);
+        this.nave = new Nave(new Vector3(0, 40, 25f), 1f, new Vector3(0, 0, 0), new Vector3(200f, 0, 0), 30);
         this.disparo= new MovilMax(new Vector3(0, 30, 25), 1f, new Vector3(0, 0, 0), new Vector3(0f, 0, 200f),20);
         this.iniciarSuelo();
         this.iniciarEnemigo();
@@ -39,7 +39,7 @@ public class Mundo02 {
     private void iniciarEnemigo() {
         enemigos = new ArrayList<Enemigo>();
         for (int i = 0; i <= 8; i++) {
-            Enemigo e = new Enemigo(new Vector3(((float) Math.random() * 300f - 150), 30f, (850f - i * 100)), 0.4f, new Vector3(0, 0, (-80f)), new Vector3(0, 0, -450f), 1.5f);
+            Enemigo e = new Enemigo(new Vector3(((float) Math.random() * 300f - 150), 30f, (850f - i * 100)), 7f, new Vector3(0, 0, (-80f)), new Vector3(0, 0, -450f), 1.5f);
             enemigos.add(e);
         }
     }
